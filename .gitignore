@@ -1,0 +1,8 @@
+/target/
+.classpath
+.DS_Store
+/test-output/*
+/test-logs-archive/*
+.settings
+.project
+appium.log
