@@ -27,9 +27,9 @@ public class ImageUtils {
 		return copyOfImage;
 	}
 
-	public void createImage(BufferedImage bufferedImage) throws IOException {
+	public void createImage(BufferedImage bufferedImage, String fileNameToSaveImage) throws IOException {
 		
-		File outputfile = new File(FolderNames.IMAGES, "scrCopy.png");
+		File outputfile = new File(FolderNames.IMAGES, fileNameToSaveImage);
 		ImageIO.write(bufferedImage, "png", outputfile);
 	}
 	
@@ -56,11 +56,11 @@ public class ImageUtils {
 	            }
 	            percentage = (count * 100) / sizeA;
 	        } else {
-	            System.out.println("Both the images are not of same size");
+	        	LOG.info("Both the images are not of same size");
 	        }
 
 	    } catch (Exception e) {
-	        System.out.println("Failed to compare image files ...");
+	    	LOG.info("Failed to compare image files ...");
 	    }
 	    return percentage;
 	}
@@ -80,23 +80,22 @@ public class ImageUtils {
 	            		Color iA = new Color(biA.getRGB(a, b));
 	            		Color iB = new Color(biB.getRGB(a, b));
 	            		if(iA.getAlpha() == iB.getAlpha() && iA.getRed() == iB.getRed() && iA.getGreen() == iB.getGreen() && iA.getBlue() == iB.getBlue()) {
-//	            			System.out.println(String.format("ARGB values of pixel(%s,%s) in Image-A is %s,%s,%s,%s and Image-B is is %s,%s,%s,%s", a, b, iA.getAlpha(), iA.getRed(), iA.getGreen(),
-//									iA.getBlue(), iB.getAlpha(), iB.getRed(), iB.getGreen(), iB.getBlue()));
+	            			LOG.trace(String.format("ARGB values of pixel(%s,%s) in Image-A is %s,%s,%s,%s and Image-B is is %s,%s,%s,%s", a, b, iA.getAlpha(), iA.getRed(), iA.getGreen(),
+									iA.getBlue(), iB.getAlpha(), iB.getRed(), iB.getGreen(), iB.getBlue()));
 	            			count++;
 	            		}
 	            	}
 	            }
 	            percentage = (count * 100) / totalPixelsInImageA;
-	            System.out.println(String.format("Total no of pixels in the image are %s and %s pixels are perfect match", biA.getWidth()*biA.getHeight(), count));
 	            LOG.info(String.format("Out of total %s pixels %s pixels are a perfect match", biA.getWidth()*biA.getHeight(), count));
 		        if(percentage == 100.0) {
 		        	isImageIdentical = true;
-		        	System.out.println("Image-1 and Image-2 are 100% match");
+		        	LOG.info("Image-1 and Image-2 are 100% match");
 		        } else {
-		        	System.out.println(String.format("Image-1 and Image-2 are not identical and they're %.2f percent match", percentage));
+		        	LOG.info(String.format("Image-1 and Image-2 are not identical and they're %.2f percent match", percentage));
 		        }
 	        } else {
-	            System.out.println("Both the images are not of same size");
+	        	LOG.info("Both the images are not of same size");
 	        }
 	        
 	        //Comparing the databuffer instead of pixels argb values.
@@ -112,7 +111,7 @@ public class ImageUtils {
 	            }
 	        }*/
 	    } catch (Exception e) {
-	        System.out.println("Failed to compare image files ...");
+	    	LOG.info("Failed to compare image files ...");
 	    }
 	    return isImageIdentical;
 	}

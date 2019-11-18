@@ -115,7 +115,7 @@ public class AppUtils {
 		this.androidDriver.findElementById(idOfFirstProtocolFromList).click();
 
 		String xml = getPageSource();
-		System.out.println(xml + "\n");
+//		System.out.println(xml + "\n");
 		String bounds = "";
 
 		try {
@@ -135,6 +135,7 @@ public class AppUtils {
 	 */
 	public void pauseVideo() {
 
+		//Appium-click on the pause button in the player to pause it.
 	}
 
 	/**
@@ -183,6 +184,9 @@ public class AppUtils {
 
 		String strImageA = "Scr1.png";
 		String strImageB = "Scr2.png";
+		
+		String strCroppedImageA = "CroppedScr1.png";
+		String strCroppedImageB = "CroppedScr2.png";
 
 		for (int i = 0; i < totalSamples; i++) {
 			// Capture a couple of screenshots from the device with 2 second interval.
@@ -203,8 +207,8 @@ public class AppUtils {
 					boundsMap.get("endY") - boundsMap.get("startY"));
 
 			// Creating a file copy of the images cropped for debugging purposes.
-			UtilsFactory.getImageUtils().createImage(croppedImageA);
-			UtilsFactory.getImageUtils().createImage(croppedImageB);
+			UtilsFactory.getImageUtils().createImage(croppedImageA, strCroppedImageA);
+			UtilsFactory.getImageUtils().createImage(croppedImageB, strCroppedImageB);
 
 			// Comparing the cropped images to see if they're distinc
 			if (!(UtilsFactory.getImageUtils().compareImage(croppedImageA, croppedImageB))) {

@@ -6,13 +6,18 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
+/**
+ * Test-case to validate if all the libraries are working as per required.
+ * 
+ * @author ezjohnson
+ *
+ */
 public class ImageProcessingTests {
 	
 	private final static Logger LOG = Logger.getLogger(ImageProcessingTests.class);
 	
 	@Test
-	public void testRunner() throws IOException {
+	public void iPTestForVideoPlayStatusDetection() throws IOException {
 		
 		LOG.info("Launching the player application");
 		UtilsFactory.getAppUtils().launchApplication();
@@ -31,5 +36,4 @@ public class ImageProcessingTests {
 		status = UtilsFactory.getAppUtils().isVideoPlaying();
 		Assert.assertFalse(status, "The video is paused as expected.");
 	}
-
 }
