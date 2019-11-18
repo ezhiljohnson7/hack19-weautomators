@@ -17,7 +17,7 @@ public class ImageProcessingTests {
 	private final static Logger LOG = Logger.getLogger(ImageProcessingTests.class);
 	
 	@Test
-	public void iPTestForVideoPlayStatusDetection() throws IOException {
+	public void iPTestForVideoPlayStateDetection() throws IOException {
 		
 		LOG.info("Launching the player application");
 		UtilsFactory.getAppUtils().launchApplication();

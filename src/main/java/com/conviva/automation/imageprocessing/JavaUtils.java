@@ -19,6 +19,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * {@code JavaUtils} maintains all the java utilities.
+ * 
+ * @author ezjohnson
+ *
+ */
 public class JavaUtils {
 	
 	private final static Logger LOG = Logger.getLogger(JavaUtils.class);

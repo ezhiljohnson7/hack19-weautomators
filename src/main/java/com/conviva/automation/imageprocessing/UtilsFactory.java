@@ -1,5 +1,11 @@
 package com.conviva.automation.imageprocessing;
 
+/**
+ * Utility factory class for easy object creation of all the available utility classes.
+ * 
+ * @author ezjohnson
+ *
+ */
 public class UtilsFactory {
 	
 	private static ImageUtils imageUtils;

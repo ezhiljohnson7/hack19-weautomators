@@ -29,6 +29,12 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+/**
+ * Utility class to maintain all the application related utilities.
+ * 
+ * @author ezjohnson
+ *
+ */
 public class AppUtils {
 
 	private final static Logger LOG = Logger.getLogger(AppUtils.class);
@@ -100,6 +106,9 @@ public class AppUtils {
 	String pauseButtonXpath = "//android.widget.Button[@resource-id='com.brightcove.brightcove:id/play']";
 	String playerXpath = "//android.view.View";
 
+	/**
+	 * Method to start the video play on an adroid device.
+	 */
 	public void startVideo() {
 
 		LOG.info("Navigating to the brightcove video player selection page");
@@ -134,8 +143,8 @@ public class AppUtils {
 	 * Pauses the video thats already playing in the appium-launched application.
 	 */
 	public void pauseVideo() {
-
 		//Appium-click on the pause button in the player to pause it.
+		androidDriver.findElementByXPath(pauseButtonXpath).click();;
 	}
 
 	/**
@@ -179,7 +188,7 @@ public class AppUtils {
 	 */
 	public boolean isVideoPlaying() throws IOException {
 
-		int totalSamples = 3;
+		int totalSamples = 1;
 		int totalSamplesWhereVideoPlayDetected = 0;
 
 		String strImageA = "Scr1.png";
@@ -219,6 +228,11 @@ public class AppUtils {
 		return totalSamplesWhereVideoPlayDetected >= 1 ? true : false;
 	}
 
+	/**
+	 * Takes screenshot using the android driver.
+	 * 
+	 * @param fileNameToSave
+	 */
 	public void captureScreenshot(String fileNameToSave) {
 
 		File file = ((TakesScreenshot) androidDriver).getScreenshotAs(OutputType.FILE);

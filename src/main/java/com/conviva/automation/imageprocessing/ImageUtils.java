@@ -13,6 +13,12 @@ import org.apache.log4j.Logger;
 
 import com.conviva.automation.imageprocessing.Constants.FolderNames;
 
+/**
+ * {@code ImageUtils} contains all the utilties w.r.t image processing used in conviva.
+ * 
+ * @author ezjohnson
+ *
+ */
 public class ImageUtils {
 	
 	private final static Logger LOG = Logger.getLogger(ImageUtils.class);
